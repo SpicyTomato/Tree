@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">JavaStructrueExperiment_3</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- homeFragment -->
+    <string name="edit_hint">请输入前序遍历序列</string>
+    <string name="button_commit">提交</string>
+    <string name="alertdialog_title">确定生成</string>
+    <string name="alertdialog_positive">我想好了</string>
+    <string name="alertdialog_negative">我再想想</string>
+
+
+    <!-- selectFragment -->
+    <string name="button_pre">前序</string>
+    <string name="button_in">中序</string>
+    <string name="button_back">后序</string>
+    <string name="button_pre_traverse">前序非递归</string>
+    <string name="button_in_traverse">中序非递归</string>
+
+    <!-- sharedPreference -->
+
+
+    <!-- resultFragment -->
+    <string name="deffault">您没有选择遍历方式</string>
+    <string name="button_result_back">返回</string>
+
+</resources>
