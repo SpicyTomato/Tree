@@ -19,15 +19,16 @@ public class BinaryTree<T> {
 //        this.root = creat(prelist);
 //    }
 
-    private int i =0;
+    public int i =0;
     BinaryNode<T> creat(T[] prelist){
         BinaryNode<T> p = null;
         if(i < prelist.length){
+//            Log.d(TAG, "creat: " + i);
             T elem = prelist[i];
             i++;
             if(!elem.equals("#")){
                 p = new BinaryNode<T>(elem);
-                Log.d(TAG, "creat: " + elem);
+//                Log.d(TAG, "creat: " + elem + " " + prelist.toString());
                 p.left = creat(prelist);
                 p.right = creat(prelist);
             }
@@ -121,19 +122,22 @@ public class BinaryTree<T> {
             if(p!=null){
 //                System.out.print(p.getData().toString() + " ");
                 string.append(p.getData().toString() + " ");
-                Log.d(TAG, "preorderTraverse: " + stack.toString() + String.valueOf(stack.head == null));
-                try {
-                    stack.StackPush(p);
-                }catch (Exception e){
-                    Log.e(TAG, "preorderTraverse: ", e);
-                }
+                Log.d(TAG, "preorderTraverse: " + p.getData());
+                stack.StackPush(p);
                 Log.d(TAG, "preorderTraverse: " + stack.toString());
                 p = p.left;
+                if (p == null){
+                    string.append("^ ");
+                }
             }else {
 //                System.out.print("^ ");
-                string.append("^ ");
+//                string.append("^ ");
                 p = stack.StackPop();
+                Log.d(TAG, "preorderTraverse POP: " + p.getData());
                 p = p.right;
+                if (p == null){
+                    string.append("^ ");
+                }
             }
         }
     }
@@ -150,11 +154,12 @@ public class BinaryTree<T> {
                     Log.e(TAG, "inorderTraverse: ",e );
                 }
                 p = p.left;
+
             }else {
-                string.append("^ ");
                 p = stack.StackPop();
                 string.append(p.getData().toString() + " ");
                 p = p.right;
+
             }
         }
     }

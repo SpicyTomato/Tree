@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import com.spicytomato.javastructrueexperiment_3.databinding.FragmentHomeBinding
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+    private final static String TAG = "nisile!!!!!!!!!";
 
 
     public HomeFragment() {
@@ -91,8 +93,16 @@ public class HomeFragment extends Fragment {
                         String[] strings = new String[length];
                         for (int i = 0 ; i < length ; i++){
                             strings[i] = binding.editText.getText().charAt(i) + "";
+//                            Log.d(TAG, "onClick:  " + strings[i]);
+                        }
+                        try {
+                            myViewModel.getBinaryTree().root = null;
+                            myViewModel.getBinaryTree().i = 0;
+                        }catch (Exception e){
+                            Log.e(TAG, "onClick: ", e);
                         }
                         myViewModel.getBinaryTree().root = myViewModel.getBinaryTree().creat(strings);
+//                        Log.d(TAG, "onClick: " + myViewModel.getBinaryTree().root.getData());
                         controller.navigate(R.id.action_homeFragment_to_selectFragment);
                     }
                 });

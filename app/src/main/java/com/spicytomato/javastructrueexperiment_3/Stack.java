@@ -20,14 +20,22 @@ public class Stack<T> {
     }
 
     public void StackPush(T data){
-        head.next = new Node<>(data,head.next.next);
+        if (head.next == null){
+            head.next = new Node<T>(data,null);
+        }else{
+            head.next = new Node<T>(data,head.next);
+        }
     }
 
     public T StackPop() {
         T data;
-        if (!isEmpty()) {
+        if (!isEmpty()){
             data = head.next.data;
-            head.next = head.next.next;
+            if (head.next.next != null){
+                head.next = head.next.next;
+            }else {
+                head.next = null;
+            }
         }else {
             data = null;
         }
